@@ -15,6 +15,9 @@ def upload_view(request):
             blob = bucket.blob('MOCK_DATA.csv')
             try:
                 blob.delete()
+            except Exception as e:
+                print(e)
+            try:
                 blob.upload_from_filename('MOCK_DATA.csv')
             except Exception as e:
                 print(e)
